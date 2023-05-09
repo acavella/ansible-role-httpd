@@ -3,6 +3,6 @@ httpd_server_fqdns: []
 # V-214228 AS24-V2R4
 apache24STIG_stigrule_214228_Manage: True
 apache24STIG_stigrule_214228_http_conf_keepalive_Line: 'KeepAlive On'
-# V-214228 AS24-V2R4-2
+# V-214228-2 AS24-V2R4
 apache24STIG_stigrule_214228_2_Manage: True
 apache24STIG_stigrule_214228_2_http_conf_MaxKeepAlive_Line: 'MaxKeepAliveRequests 100'

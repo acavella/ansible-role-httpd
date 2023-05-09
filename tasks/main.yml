@@ -13,7 +13,7 @@
     mode: 0644
     backup: true
 - name: stigrule_214228_keepalive
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/httpd/conf/httpd.conf
     regexp: '(?i)^KeepAlive\s+Off'
     line: '{{ apache24STIG_stigrule_214228_http_conf_keepalive_Line }}'
@@ -21,13 +21,17 @@
   when:
     - apache24STIG_stigrule_214228_Manage
 - name: stigrule_214228-2_keepalive
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/httpd/conf/httpd.conf
     regexp: '(?i)^MaxKeepAliveRequests\s+[0-9]*'
     line: '{{ apache24STIG_stigrule_214228_2_http_conf_MaxKeepAlive_Line }}'
     create: yes
   when:
     - apache24STIG_stigrule_214228_2_Manage
+- name: stigrule_214242_erasemanuals
+  ansible.builtin.dnf:
+    name: httpd-manual
+    state: absent
 - name: Restart and enable chrony daemon
   ansible.builtin.service:
     name: chronyd
