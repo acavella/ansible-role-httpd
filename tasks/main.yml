@@ -24,10 +24,10 @@
   lineinfile:
     path: /etc/httpd/conf/httpd.conf
     regexp: '(?i)^MaxKeepAliveRequests\s+[0-9]*'
-    line: '{{ apache24STIG_stigrule_214228-2_http_conf_MaxKeepAlive_Line }}'
+    line: '{{ apache24STIG_stigrule_214228_2_http_conf_MaxKeepAlive_Line }}'
     create: yes
   when:
-    - apache24STIG_stigrule_214228-2_Manage
+    - apache24STIG_stigrule_214228_2_Manage
 - name: Restart and enable chrony daemon
   ansible.builtin.service:
     name: chronyd
