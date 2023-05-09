@@ -32,6 +32,13 @@
   ansible.builtin.dnf:
     name: httpd-manual
     state: absent
+- name: stigrule_214242_welcome
+  ansible.builtin.copy:
+    src: templates/welcome.conf.j2
+    dest: /etc/httpd/conf.d/welcome.conf
+    owner: root
+    group: root
+    mode: 644
 - name: Restart and enable chrony daemon
   ansible.builtin.service:
     name: chronyd
