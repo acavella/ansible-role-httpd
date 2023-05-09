@@ -15,8 +15,8 @@
 - name: stigrule_214228_keepalive
   lineinfile:
     path: /etc/httpd/conf/httpd.conf
-    regexp: "(?i)^KeepAlive\s+Off"
-    line: "{{ apache24STIG_stigrule_214228_http_conf_keepalive_Line }}"
+    regexp: '(?i)^KeepAlive\s+Off'
+    line: '{{ apache24STIG_stigrule_214228_http_conf_keepalive_Line }}'
     create: yes
   when:
     - apache24STIG_stigrule_214228_Manage
