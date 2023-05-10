@@ -13,3 +13,6 @@ apache24STIG_stigrule_214230_2_ssl_Line: 'SSLProtocol -ALL +TLSv1.2'
 # V-214231 AS24-V2R4
 apache24STIG_stigrule_214231_Manage: True
 apache24STIG_stigrule_214231_CustomLog_Line: 'CustomLog "logs/access_log" combined'
+# V-214250 AS24-V2R4
+apache24STIG_stigrule_214250_Manage: True
+apache24STIG_stigrule_214250_SessionAge_Line: 'SessionMaxAge 600'

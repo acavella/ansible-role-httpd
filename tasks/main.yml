@@ -83,6 +83,12 @@
     path: /etc/httpd/conf/httpd.conf
     regexp: '(?i)^Listen\s+80'
     line: 'Listen 127.0.0.1:80'
+- name: stigrule_214250_SessionAge
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    insertbefore: '(?i)^#\s+Supplemental\s+configuration'
+    line: '{{ apache24STIG_stigrule_214250_SessionAge_Line }}'
+  when: apache24STIG_stigrule_214250_Manage
   ansible.builtin.service:
     name: httpd
     state: restarted
