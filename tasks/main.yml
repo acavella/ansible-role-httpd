@@ -39,7 +39,7 @@
     owner: root
     group: root
     mode: 644
-- name: stigrule_214253_precheck
+- name: stigrule_214253_module_check
   ansible.builtin.command:
     cmd: httpd -M | grep unique_id
     rc: 1
@@ -50,7 +50,18 @@
     dest: /etc/httpd/conf.modules.d/00-unique_id.conf
   when: unique_id_exists
 - name: Restart and enable chrony daemon
+- name: stigrule_214229_module_check
+  ansible.builtin.command:
+    cmd: httpd -M | grep 'session_module|usertrack'
+    rc: 1
+    register: usertrack_exists
+- name: stigrule_214229_usertrack
+  ansible.builtin.copy:
+    src: templates/usertrack.conf.j2
+    dest: /etc/httpd/conf.modules.d/00-usertrack.conf
+  when: usertrack_exists
+- name: Restart and enable httpd daemon
   ansible.builtin.service:
-    name: chronyd
+    name: httpd
     state: restarted
     enabled: true
