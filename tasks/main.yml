@@ -3,15 +3,7 @@
   ansible.builtin.dnf:
     name: httpd
     state: latest
-    update_cache: true
-- name: Update template and copy to destination server
-  ansible.builtin.template:
-    src: templates/chrony.conf.j2
-    dest: /etc/chrony.conf
-    owner: root
-    group: root
-    mode: 0644
-    backup: true
+    update_cache: True
 - name: stigrule_214228_keepalive
   ansible.builtin.lineinfile:
     path: /etc/httpd/conf/httpd.conf
@@ -61,6 +53,23 @@
     dest: /etc/httpd/conf.modules.d/00-usertrack.conf
   when: usertrack_exists
 - name: Restart and enable httpd daemon
+- name: stigrule_214230_module_check
+  ansible.builtin.command:
+    cmd: httpd -M | grep ssl_module
+    rc: 1
+    register: ssl_exists
+- name: stigrule_214230_ssl
+  ansible.builtin.dnf:
+    name: mod_ssl
+    state: latest
+    update_cache: True
+- name: stigrule_214230_2_ssl
+  ansible_builtin.lineinfile:
+    path: /etc/httpd/conf.d/ssl.conf
+    regexp: '(?i)SSLProtocol'
+    line: '{{ apache24STIG_stigrule_214230_2_ssl_Line }}'
+  when:
+    - apache24STIG_stigrule_214230_2_Manage
   ansible.builtin.service:
     name: httpd
     state: restarted
