@@ -113,6 +113,7 @@
     owner: root
     group: root
     mode: '0644'
+- name: restart httpd service
   ansible.builtin.service:
     name: httpd
     state: restarted
