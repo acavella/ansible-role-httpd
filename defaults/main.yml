@@ -16,3 +16,12 @@ apache24STIG_stigrule_214231_CustomLog_Line: 'CustomLog "logs/access_log" combin
 # V-214250 AS24-V2R4
 apache24STIG_stigrule_214250_Manage: True
 apache24STIG_stigrule_214250_SessionAge_Line: 'SessionMaxAge 600'
+# V-214252 AS24-V2R4
+apache24STIG_stigrule_214252_Manage: True
+apache24STIG_stigrule_214252_SessionCrypto_Line: 'SessionCryptoCipher aes256'
+# V-214255 AS24-V2R4
+apache24STIG_stigrule_214255_Manage: True
+apache24STIG_stigrule_214255_Timeout_Line: 'Timeout 10'
+# V-214257 AS24-V2R4
+apache24STIG_stigrule_214257_Manage: True
+apache24STIG_stigrule_214257_TraceEnable_Line: 'TraceEnable Off'

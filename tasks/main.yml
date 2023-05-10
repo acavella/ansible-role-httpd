@@ -89,6 +89,30 @@
     insertbefore: '(?i)^#\s+Supplemental\s+configuration'
     line: '{{ apache24STIG_stigrule_214250_SessionAge_Line }}'
   when: apache24STIG_stigrule_214250_Manage
+- name: stigrule_214252_SessionCryptoCipher
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    insertbefore: '(?i)^#\s+Supplemental\s+configuration'
+    line: '{{ apache24STIG_stigrule_214252_SessionCrypto_Line }}'
+  when: apache24STIG_stigrule_214252_Manage
+- name: stigrule_214255_Timeout
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    insertbefore: '(?i)^#\s+Supplemental\s+configuration'
+    line: '{{ apache24STIG_stigrule_214255_Timeout_Line }}'
+  when: apache24STIG_stigrule_214255_Manage
+- name: stigrule_214257_TraceEnable
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    insertbefore: '(?i)^#\s+Supplemental\s+configuration'
+    line: '{{ apache24STIG_stigrule_214257_TraceEnable_Line }}'
+  when: apache24STIG_stigrule_214257_Manage
+- name: stigrule_214267_permissions
+  ansible.builtin.file:
+    path: /run/httpd/httpd.pid
+    owner: root
+    group: root
+    mode: '0644'
   ansible.builtin.service:
     name: httpd
     state: restarted
