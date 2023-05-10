@@ -39,6 +39,16 @@
     owner: root
     group: root
     mode: 644
+- name: stigrule_214253_precheck
+  ansible.builtin.command:
+    cmd: httpd -M | grep unique_id
+    rc: 1
+    register: unique_id_exists
+- name: stigrule_214253_uniqueid
+  ansible.builtin.copy:
+    src: templates/uniqueid.conf.j2
+    dest: /etc/httpd/conf.modules.d/00-unique_id.conf
+  when: unique_id_exists
 - name: Restart and enable chrony daemon
   ansible.builtin.service:
     name: chronyd
