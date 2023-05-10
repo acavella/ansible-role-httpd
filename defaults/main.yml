@@ -1,6 +1,7 @@
 ---
 httpd_server_fqdns: []
-httpd_server_ip: "104.131.0.55"
+# V-212246 AS24-V2R4
+httpd_default_listen: "127.0.0.1:80"
 # V-214228 AS24-V2R4
 apache24STIG_stigrule_214228_Manage: True
 apache24STIG_stigrule_214228_http_conf_keepalive_Line: 'KeepAlive On'

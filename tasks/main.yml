@@ -82,7 +82,7 @@
   ansible.builtin.lineinfile:
     path: /etc/httpd/conf/httpd.conf
     regexp: '(?i)^Listen\s+80'
-    line: 'Listen 127.0.0.1:80'
+    line: 'Listen {{ httpd_default_listen }}'
 - name: stigrule_214250_SessionAge
   ansible.builtin.lineinfile:
     path: /etc/httpd/conf/httpd.conf
