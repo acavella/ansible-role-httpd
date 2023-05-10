@@ -78,6 +78,11 @@
     create: yes
   when:
     - apache24STIG_stigrule_214231_Manage
+- name: stigrule_214246_Listen
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '(?i)^Listen\s+80'
+    line: 'Listen 127.0.0.1:80'
   ansible.builtin.service:
     name: httpd
     state: restarted
