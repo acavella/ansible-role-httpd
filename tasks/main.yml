@@ -70,6 +70,14 @@
     line: '{{ apache24STIG_stigrule_214230_2_ssl_Line }}'
   when:
     - apache24STIG_stigrule_214230_2_Manage
+- name: stigrule_214231_CustomLog
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '(?i)^CustomLog*'
+    line: '{{ apache24STIG_stigrule_214231_CustomLog_Line }}'
+    create: yes
+  when:
+    - apache24STIG_stigrule_214231_Manage
   ansible.builtin.service:
     name: httpd
     state: restarted

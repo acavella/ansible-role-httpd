@@ -6,5 +6,9 @@ apache24STIG_stigrule_214228_http_conf_keepalive_Line: 'KeepAlive On'
 # V-214228-2 AS24-V2R4
 apache24STIG_stigrule_214228_2_Manage: True
 apache24STIG_stigrule_214228_2_http_conf_MaxKeepAlive_Line: 'MaxKeepAliveRequests 100'
+# V-214230-2 AS24-V2R4
 apache24STIG_stigrule_214230_2_Manage: True
 apache24STIG_stigrule_214230_2_ssl_Line: 'SSLProtocol -ALL +TLSv1.2'
+# V-214231 AS24-V2R4
+apache24STIG_stigrule_214231_Manage: True
+apache24STIG_stigrule_214231_CustomLog_Line: 'CustomLog "logs/access_log" combined'
