@@ -1,7 +1,7 @@
 ---
-- name: Install latest version of chrony
+- name: stigrule_214273_latestversion
   ansible.builtin.dnf:
-    name: chrony
+    name: httpd
     state: latest
     update_cache: true
 - name: Update template and copy to destination server
