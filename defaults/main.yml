@@ -1,7 +1,6 @@
 ---
-httpd_server_fqdns: []
 # V-212246 AS24-V2R4
-httpd_default_listen: "127.0.0.1:80"
+apache24STIG_stigrule_214228_ListenAddress_Line: "127.0.0.1:80"
 # V-214228 AS24-V2R4
 apache24STIG_stigrule_214228_Manage: True
 apache24STIG_stigrule_214228_http_conf_keepalive_Line: 'KeepAlive On'
