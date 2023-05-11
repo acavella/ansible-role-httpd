@@ -26,3 +26,6 @@ apache24STIG_stigrule_214255_Timeout_Line: 'Timeout 10'
 # V-214257 AS24-V2R4
 apache24STIG_stigrule_214257_Manage: True
 apache24STIG_stigrule_214257_TraceEnable_Line: 'TraceEnable Off'
+# V-214269 AS24-V2R4
+apache24STIG_stigrule_214269_Manage: True
+apache24STIG_stigrule_214269_CipherSuite_Line: 'SSLCipherSuite="HIGH:3DES:!NULL:!MD5:!SEED:!DEA:!EXPORT"'
